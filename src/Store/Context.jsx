@@ -1,14 +1,33 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
-import { fetchWeatherForecast, fetchWeatherLocations } from "../config/config";
+import {
+  fetchWeatherForecast,
+  fetchWeatherGeoLocations,
+  fetchWeatherLocations,
+} from "../config/config";
 import { debounce } from "lodash";
 
 export const Weather = createContext(null);
 
 const Context = ({ children }) => {
-  // const [showSearch, setShowSearch] = useState(false);
   const [weather, setWeather] = useState({});
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const fetchMyWeatherData = async () => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      fetchWeatherGeoLocations({
+        lat: latitude,
+        lon: longitude,
+        days: "8",
+      }).then((data) => {
+        setWeather(data);
+        setLoading(false);
+      });
+    });
+  };
 
   const handleLocation = (loc) => {
     setLocations([]);
@@ -19,15 +38,12 @@ const Context = ({ children }) => {
     }).then((data) => {
       setWeather(data);
       setLoading(false);
-      console.log(data);
     });
   };
 
   const handleSearch = (e) => {
-    let text = e.target.value
-    console.log(text)
-    if (text.length > 2) {
-      fetchWeatherLocations({ cityName: text }).then((data) => {
+    if (e.target.value.length > 2) {
+      fetchWeatherLocations({ cityName: e.target.value }).then((data) => {
         setLocations(data);
         handleTextDebounce();
       });
@@ -37,16 +53,6 @@ const Context = ({ children }) => {
   useEffect(() => {
     fetchMyWeatherData();
   }, []);
-
-  const fetchMyWeatherData = async () => {
-    fetchWeatherForecast({
-      cityName: "Malegaon",
-      days: "7",
-    }).then((data) => {
-      setWeather(data);
-      setLoading(false);
-    });
-  };
 
   const handleTextDebounce = useCallback(debounce(handleSearch, 100), []);
 

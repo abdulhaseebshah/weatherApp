@@ -10,8 +10,7 @@ const StateBox = ({ value, label }) => (
 const CurrentStats = () => {
   const { weather } = useContext(Weather);
   const { forecast } = weather;
-  console.log(forecast.forecastday[0].day.maxwind_kph);
-
+  
   return (
     <div className="flex justify-around w-full border-t border-b md:mb-4 md:pb-0 md:border-t-0 md:border-b-0 md:border-l border-white/30 md:w-1/2 flex-wrap items-center mt-4">
       <StateBox

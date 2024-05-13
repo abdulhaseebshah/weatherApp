@@ -7,25 +7,25 @@ import NextFiveDays from "./components/NextFiveDays";
 import { Weather } from "./Store/Context";
 import Loading from "./components/Loading";
 import Footer from "./components/Footer";
-import "./App.css"
+import "./App.css";
 
 const App = () => {
   const { loading } = useContext(Weather);
   return (
-    <main className="flex flex-wrap p-4 lg:w-[880px] lg:my-2 lg:mx-auto lg:text-[1.1em]">
+    <>
       {loading ? (
         <Loading />
       ) : (
-        <>
+        <main className="flex flex-wrap p-4 lg:w-[880px] lg:my-2 lg:mx-auto lg:text-[1.1em]">
           <LocationAndDate />
           <CurrentTemp />
           <CurrentStats />
           <WeatherByHours />
           <NextFiveDays />
           <Footer />
-        </>
+        </main>
       )}
-    </main>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import searchIcon from "../assets/search-icon.png";
 import { Weather } from "../Store/Context";
 const SearchBox = () => {
   const { handleTextDebounce, handleLocation, locations } = useContext(Weather);
-  console.log(locations);
+  
   return (
     <div className="relative w-full md:w-auto">
       <div className=" flex justify-between border border-white/40 rounded-full bg-black/30 px-4 mb-1">
@@ -18,7 +18,7 @@ const SearchBox = () => {
         </button>
       </div>
       {locations.length > 0 && (
-        <div className="bg-[#311E4C] h-30 w-full rounded-3xl p-2 absolute z-50">
+        <div className="bg-[#003566] h-30 w-full rounded-3xl p-2 absolute z-50">
           {locations.map((loc, index) => {
             let borderClass = index + 1 != locations.length;
             return (
