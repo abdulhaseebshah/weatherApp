@@ -24,6 +24,7 @@ const Context = ({ children }) => {
         days: "8",
       }).then((data) => {
         setWeather(data);
+        console.log(data)
         setLoading(false);
       });
     });
@@ -45,7 +46,6 @@ const Context = ({ children }) => {
     if (e.target.value.length > 2) {
       fetchWeatherLocations({ cityName: e.target.value }).then((data) => {
         setLocations(data);
-        handleTextDebounce();
       });
     }
   };

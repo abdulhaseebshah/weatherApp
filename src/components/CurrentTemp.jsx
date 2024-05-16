@@ -9,7 +9,7 @@ const CurrentTemp = () => {
     <div className="flex w-full mt-[0.25em] md:w-1/2 items-center">
       <div className="flex-grow-[1.25em] text-center p-4">
         <img
-          src={weatherImages[current.condition.text]}
+          src={"https:" + current.condition.icon}
           alt={current.condition.text}
           className="w-[150px]"
         />

@@ -36,7 +36,7 @@ const NextFiveDays = () => {
                   className="w-[60px]"
                 /> */}
                 <img
-                  src={ weatherImages[current.condition.text]}
+                  src={"https:" + current.condition.icon}
                   alt={item.day.condition.text}
                   className="w-[60px]"
                 />

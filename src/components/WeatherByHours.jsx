@@ -37,7 +37,7 @@ const WeatherByHours = () => {
             <WeatherItem
               key={index}
               hours={item.time.split(" ")[1]}
-              icon={weatherImages[item.condition.text]}
+              icon={"https:" + item.condition.icon}
               temp={item.temp_c.toFixed(0) + "°"}
             />
           );
