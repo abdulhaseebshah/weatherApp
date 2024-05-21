@@ -18,7 +18,7 @@ const SearchBox = () => {
         </button>
       </div>
       {locations.length > 0 && (
-        <div className="bg-[#003566] h-30 w-full rounded-3xl p-2 absolute z-50">
+        <div className="bg-black/30 backdrop-blur-lg h-30 w-full rounded-3xl p-2 absolute z-50">
           {locations.map((loc, index) => {
             let borderClass = index + 1 != locations.length;
             return (

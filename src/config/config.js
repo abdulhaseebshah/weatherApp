@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apikey = import.meta.env.VITE_APIKEY || "5196d466329d4969b9471409240405";
+const apikey = import.meta.env.VITE_API_KEY;
 
 const forecastEndpoint = (params) =>
   `https://api.weatherapi.com/v1/forecast.json?key=${apikey}&q=${params.cityName}&days=${params.days}&aqi=no&alerts=no`;
@@ -32,7 +32,7 @@ export const fetchWeatherForecast = (params) => {
 export const fetchWeatherLocations = (params) => {
   return apiCall(locationsEndpoint(params));
 };
+
 export const fetchWeatherGeoLocations = (params) => {
   return apiCall(forecastLocationEndpoint(params));
 };
-

@@ -24,7 +24,6 @@ const Context = ({ children }) => {
         days: "8",
       }).then((data) => {
         setWeather(data);
-        console.log(data)
         setLoading(false);
       });
     });

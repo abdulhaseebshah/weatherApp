@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Weather } from "../Store/Context";
-import { weatherImages } from "../constant";
+import { generateIcon } from "../config/generateIcon";
 
 const NextWeatherItem = ({ value, label }) => (
   <div className="w-[33.33%] md:w-[16.66%] p-2">
@@ -11,7 +11,7 @@ const NextWeatherItem = ({ value, label }) => (
 
 const NextFiveDays = () => {
   const { weather } = useContext(Weather);
-  const { current, forecast } = weather;
+  const { forecast } = weather;
   return (
     <div className="w-full flex-wrap mt-4">
       <h2 className="text-[1.2em] text-white/50 md:text-[1.125em] py-2 ">
@@ -20,6 +20,7 @@ const NextFiveDays = () => {
       <div className="flex flex-wrap">
         {forecast.forecastday.map((item, index) => {
           let date = new Date(item.date);
+          const icon = generateIcon(item.day.condition.icon);
           return (
             <div
               className="w-full flex flex-wrap justify-around items-center py-3 mb-2 text-center bg-black/30 rounded-md"
@@ -30,13 +31,8 @@ const NextFiveDays = () => {
                 label={date.toLocaleDateString().slice(0, 4)}
               />
               <div className="w-[33.33%] md:w-[16.66%] flex justify-center p-2">
-                {/* <img
-                  src={"https:" + item.day.condition.icon}
-                  alt={item.day.condition.text}
-                  className="w-[60px]"
-                /> */}
                 <img
-                  src={"https:" + current.condition.icon}
+                  src={icon}
                   alt={item.day.condition.text}
                   className="w-[60px]"
                 />
@@ -45,7 +41,7 @@ const NextFiveDays = () => {
                 value={item.day.mintemp_c.toFixed(0) + "°"}
                 label="Low"
               />
-              
+
               <NextWeatherItem
                 value={item.day.maxtemp_c.toFixed(0) + "°"}
                 label="High"

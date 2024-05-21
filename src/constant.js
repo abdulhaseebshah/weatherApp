@@ -1,25 +1,23 @@
-import partycloudy from "./assets/icons/partycloudy.png";
-import moderaterain from "./assets/icons/moderaterain.png";
-import heavyrain from "./assets/icons/heavyrain.png";
-import sun from "./assets/icons/sunny.png";
-import cloudy from "./assets/icons/cloud.png";
+import sunny from "./assets/icons/sunny.png";
+import clear from "./assets/icons/clear.png";
+import cloudy from "./assets/icons/cloudy.png";
+import cloudynight from "./assets/icons/cloudy-night.png";
+import partycloudyday from "./assets/icons/party-cloudy-day.png";
+import partycloudynight from "./assets/icons/party-cloudy-night.png";
+import mist from "./assets/icons/mist.png";
+import overcast from "./assets/icons/overcast.png";
+import patchyrainday from "./assets/icons/patchy-rain-day.png";
+import patchyrainnight from "./assets/icons/patchy-rain-night.png";
 
 export const weatherImages = {
-  "Partly cloudy": partycloudy,
-  "Partly Cloudy ": partycloudy,
-  "Moderate rain": moderaterain,
-  "Patchy rain nearby": moderaterain,
-  "Sunny": sun,
-  "Clear": sun,
-  "Clear ": sun,
-  "Overcast": cloudy,
-  "Cloudy": cloudy,
-  "Light rain": moderaterain,
-  "Moderate rain at times": moderaterain,
-  "Heavy rain": heavyrain,
-  "Heavy rain at times": heavyrain,
-  "Moderate or heavy freezing rain": heavyrain,
-  "Moderate or heavy rain shower": heavyrain,
-  "Moderate or heavy rain with thunder": heavyrain,
-  other: moderaterain,
+  sunny: sunny,
+  clear: clear,
+  cloudy: cloudy,
+  cloudynight: cloudynight,
+  partycloudyday: partycloudyday,
+  partycloudynight: partycloudynight,
+  mist: mist,
+  overcast: overcast,
+  patchyrainday: patchyrainday,
+  patchyrainnight: patchyrainnight,
 };

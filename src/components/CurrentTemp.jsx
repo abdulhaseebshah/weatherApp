@@ -1,19 +1,15 @@
 import React, { useContext } from "react";
 import { Weather } from "../Store/Context";
-import { weatherImages } from "../constant";
+import { generateIcon } from "../config/generateIcon";
 
 const CurrentTemp = () => {
   const { weather } = useContext(Weather);
   const { current } = weather;
+  const icon = generateIcon(current.condition.icon);
   return (
     <div className="flex w-full mt-[0.25em] md:w-1/2 items-center">
       <div className="flex-grow-[1.25em] text-center p-4">
-        <img
-          src={"https:" + current.condition.icon}
-          alt={current.condition.text}
-          className="w-[150px]"
-        />
-        {/* <img src={`https:${current.condition.icon}`} alt={current.condition.text} className="w-[150px]" /> */}
+        <img src={icon} alt={current.condition.text} className="w-[150px]" />
       </div>
       <div className="flex-grow-[1] text-center">
         <h2 className="text-[5.25em] font-light leading-none">
