@@ -30,6 +30,6 @@ export const generateIcon = (current) => {
   } else if (current === "//cdn.weatherapi.com/weather/64x64/night/353.png") {
     return weatherImages.patchyrainnight;
   }else {
-    return null;
+    return weatherImages.notfound;
   }
 };

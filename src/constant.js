@@ -8,6 +8,7 @@ import mist from "./assets/icons/mist.png";
 import overcast from "./assets/icons/overcast.png";
 import patchyrainday from "./assets/icons/patchy-rain-day.png";
 import patchyrainnight from "./assets/icons/patchy-rain-night.png";
+import notfound from "./assets/icons/404.png";
 
 export const weatherImages = {
   sunny: sunny,
@@ -20,4 +21,5 @@ export const weatherImages = {
   overcast: overcast,
   patchyrainday: patchyrainday,
   patchyrainnight: patchyrainnight,
+  notfound: notfound,
 };
