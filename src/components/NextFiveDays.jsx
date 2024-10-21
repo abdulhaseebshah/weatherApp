@@ -15,7 +15,7 @@ const NextFiveDays = () => {
   return (
     <div className="w-full flex-wrap mt-4">
       <h2 className="text-[1.2em] text-white/50 md:text-[1.125em] py-2 ">
-        Next 7 Days
+        Next {forecast.forecastday.length} Days
       </h2>
       <div className="flex flex-wrap">
         {forecast.forecastday.map((item, index) => {
